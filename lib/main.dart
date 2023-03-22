@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drawer Palma'),
+        title: Text('Palma Drawer'),
         centerTitle: true,
         backgroundColor: const Color(0xff9bb6e7),
       ),
@@ -39,17 +39,28 @@ class _MyHomePageState extends State<MyHomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xff7e98be),
+            const UserAccountsDrawerHeader(
+              // <-- SEE HERE
+              decoration: BoxDecoration(color: const Color(0xff505e9a)),
+              accountName: Text(
+                "Pinkesh Darji",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              child: Text('Encabezado'),
+              accountEmail: Text(
+                "pinkesh.earth@gmail.com",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              currentAccountPicture: FlutterLogo(),
             ),
             ListTile(
               leading: Icon(
                 Icons.home,
               ),
-              title: const Text('Pagina 1'),
+              title: const Text('Page 1'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -58,21 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(
                 Icons.train,
               ),
-              title: const Text('Pagina 2'),
+              title: const Text('Page 2'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              leading: Icon(
-                Icons.coffee_rounded,
-              ),
-              title: const Text('Pagina 3'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+          ], //Children
         ),
       ),
       body: Center(),
